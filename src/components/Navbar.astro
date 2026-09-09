@@ -1,0 +1,66 @@
+---
+const links = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Programs", href: "#programs" },
+  { label: "Facilities", href: "#facilities" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="absolute inset-x-0 top-0 z-50 text-white">
+  <nav
+    class="mx-auto flex w-full max-w-[1500px] items-center justify-between px-6 py-6 lg:px-10"
+  >
+    <a
+      href="#home"
+      class="flex items-center gap-4 no-underline"
+      aria-label="Muscle Up home"
+    >
+      <span class="text-xl font-black uppercase italic tracking-[-0.04em]">
+        Muscle Up
+      </span>
+
+      <span class="hidden h-7 w-px bg-white/30 sm:block"></span>
+
+      <span
+        class="hidden text-[0.62rem] font-medium uppercase leading-[1.35] tracking-[0.28em] text-white/55 sm:block"
+      >
+        Training Club
+        <br />
+        Bali
+      </span>
+    </a>
+
+    <div class="hidden items-center gap-9 lg:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="relative py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/80 no-underline transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-[#F04A2A] after:transition-transform hover:after:origin-left hover:after:scale-x-100"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a
+      href="#pricing"
+      class="hidden items-center gap-6 bg-[#F04A2A] px-6 py-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white lg:inline-flex"
+    >
+      Join Now
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <button
+      type="button"
+      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-white/25 lg:hidden"
+      aria-label="Open navigation"
+    >
+      <span class="h-px w-5 bg-white"></span>
+      <span class="h-px w-5 bg-white"></span>
+    </button>
+  </nav>
+</header>

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0b0b;
+  --surface: #121212;
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
+  --accent: #f04a2a;
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

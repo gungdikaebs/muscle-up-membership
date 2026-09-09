@@ -1,0 +1,122 @@
+---
+import heroImage from "../assets/images/hero.png";
+---
+
+<section
+  id="home"
+  class="relative isolate flex min-h-svh overflow-hidden bg-[#0B0B0B] text-white"
+>
+  <!-- Background Image -->
+  <img
+    src={heroImage.src}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 -z-30 h-full w-full object-cover object-[64%_center] lg:object-center"
+  />
+
+  <!-- Dark Overlay -->
+  <div
+    class="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(5,5,5,.97)_0%,rgba(5,5,5,.88)_28%,rgba(5,5,5,.55)_52%,rgba(5,5,5,.12)_78%),linear-gradient(0deg,rgba(5,5,5,.72)_0%,transparent_52%)]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Subtle Texture -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 opacity-[0.05]"
+    style="background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 72px 72px;"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div
+    class="mx-auto flex w-full max-w-[1500px] flex-1 items-center px-6 pb-24 pt-32 lg:px-10 lg:pb-20 lg:pt-36"
+  >
+    <div class="max-w-[720px]">
+      <!-- Eyebrow -->
+      <div class="mb-6 flex items-center gap-4">
+        <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
+
+        <p
+          class="text-[0.65rem] font-medium uppercase leading-[1.4] tracking-[0.26em] text-white/50"
+        >
+          Stronger people
+          <br />
+          A brighter tomorrow
+        </p>
+      </div>
+
+      <!-- Heading -->
+      <h1
+        class="font-display m-0 max-w-[700px] text-[clamp(4.6rem,10vw,9.2rem)] font-extrabold uppercase leading-[0.8] tracking-[-0.045em]"
+      >
+        <span class="block">Build A</span>
+        <span class="block">Stronger</span>
+        <span class="block text-[#F04A2A]">You.</span>
+      </h1>
+
+      <!-- Copy -->
+      <p
+        class="mt-8 max-w-[540px] text-base leading-[1.65] text-white/72 lg:text-lg"
+      >
+        More than a gym, Muscle Up is a community for people who choose
+        progress, every day.
+      </p>
+
+      <!-- Actions -->
+      <div class="mt-8 flex flex-wrap items-center gap-7">
+        <a
+          href="#pricing"
+          class="inline-flex min-w-[205px] items-center justify-between gap-8 bg-[#F04A2A] px-6 py-4 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white"
+        >
+          Start Training
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="#programs"
+          class="border-b border-white/40 pb-1 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white no-underline transition-opacity hover:opacity-60"
+        >
+          View Programs
+        </a>
+      </div>
+
+      <!-- Scroll cue -->
+      <div
+        class="mt-12 flex items-center gap-5 text-[0.6rem] font-medium uppercase tracking-[0.24em] text-white/45"
+      >
+        <span class="h-10 w-px bg-white/60"></span>
+        <span>Scroll Down</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Marker -->
+  <div
+    class="absolute right-7 top-1/2 hidden -translate-y-1/2 flex-col gap-5 lg:flex"
+  >
+    <div class="flex items-center gap-3">
+      <span class="text-[0.6rem] font-semibold tracking-[0.15em]">01</span>
+      <span class="h-px w-10 bg-[#F04A2A]"></span>
+    </div>
+
+    <div class="flex items-center gap-3 opacity-40">
+      <span class="text-[0.6rem] font-semibold tracking-[0.15em]">02</span>
+      <span class="h-px w-5 bg-white"></span>
+    </div>
+
+    <div class="flex items-center gap-3 opacity-40">
+      <span class="text-[0.6rem] font-semibold tracking-[0.15em]">03</span>
+      <span class="h-px w-5 bg-white"></span>
+    </div>
+  </div>
+
+  <!-- Location -->
+  <div
+    class="absolute bottom-8 right-8 hidden items-center gap-3 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-white/50 lg:flex"
+  >
+    <span>⌖</span>
+    <span>Denpasar, Bali</span>
+    <span class="ml-3 h-px w-5 bg-[#F04A2A]"></span>
+  </div>
+</section>
