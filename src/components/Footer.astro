@@ -1,0 +1,122 @@
+---
+const links = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Programs", href: "#programs" },
+  { label: "Facilities", href: "#facilities" },
+  { label: "Coaches", href: "#coaches" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<footer class="border-t border-white/10 bg-[#080808] text-white">
+  <div class="mx-auto w-full max-w-[1500px] px-6 py-14 lg:px-10 lg:py-16">
+    <!-- TOP -->
+    <div class="grid gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-start">
+      <!-- BRAND -->
+      <div>
+        <p
+          class="font-display text-[clamp(3.5rem,7vw,7rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.05em]"
+        >
+          Muscle
+          <span class="text-[#F04A2A]">Up.</span>
+        </p>
+
+        <p class="mt-6 max-w-[420px] text-sm leading-[1.8] text-white/45">
+          Strength, conditioning, and a community built around progress. Show
+          up, train with purpose, and get better every day.
+        </p>
+
+        <a
+          href="#pricing"
+          class="mt-8 inline-flex items-center gap-6 border-b border-white/30 pb-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] no-underline transition-colors hover:border-[#F04A2A] hover:text-[#F04A2A]"
+        >
+          Start Training
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- LINKS -->
+      <div class="grid gap-10 sm:grid-cols-2">
+        <div>
+          <p
+            class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/25"
+          >
+            Navigation
+          </p>
+
+          <div class="flex flex-col gap-3">
+            {
+              links.map((link) => (
+                <a
+                  href={link.href}
+                  class="w-fit text-sm text-white/60 no-underline transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div>
+          <p
+            class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/25"
+          >
+            Visit
+          </p>
+
+          <div class="space-y-5 text-sm leading-[1.7] text-white/55">
+            <p>
+              Denpasar, Bali
+              <br />
+              Indonesia
+            </p>
+
+            <p>
+              Mon — Fri
+              <br />
+              06:00 — 22:00
+            </p>
+
+            <a
+              href="mailto:hello@muscleup.fit"
+              class="inline-block text-white/55 no-underline transition-colors hover:text-[#F04A2A]"
+            >
+              hello@muscleup.fit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="my-12 border-t border-white/10"></div>
+
+    <!-- BOTTOM -->
+    <div
+      class="flex flex-col gap-5 text-[0.6rem] font-medium uppercase tracking-[0.14em] text-white/25 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>
+        © {new Date().getFullYear()} Muscle Up.
+      </p>
+
+      <div class="flex flex-wrap gap-6">
+        <a href="#" class="no-underline transition-colors hover:text-white">
+          Instagram
+        </a>
+
+        <a href="#" class="no-underline transition-colors hover:text-white">
+          TikTok
+        </a>
+
+        <a href="#" class="no-underline transition-colors hover:text-white">
+          Privacy
+        </a>
+      </div>
+
+      <p>Training Club · Bali</p>
+    </div>
+  </div>
+</footer>
