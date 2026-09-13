@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import aboutImage from "../assets/images/about-muscle-up.png";
 ---
 
@@ -6,11 +7,17 @@ import aboutImage from "../assets/images/about-muscle-up.png";
   <div
     class="mx-auto grid w-full max-w-[1500px] gap-12 px-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-10"
   >
-    <div class="relative min-h-[460px] overflow-hidden lg:min-h-[620px]">
-      <img
-        src={aboutImage.src}
+    <div
+      class="relative min-h-[460px] overflow-hidden lg:min-h-[620px]"
+      data-reveal="image"
+    >
+      <Image
+        src={aboutImage}
         alt="Muscle Up training community"
         class="absolute inset-0 h-full w-full object-cover grayscale"
+        layout="full-width"
+        loading="lazy"
+        decoding="async"
       />
 
       <div
@@ -30,49 +37,53 @@ import aboutImage from "../assets/images/about-muscle-up.png";
     </div>
 
     <div class="lg:pl-12">
-      <div class="mb-6 flex items-center gap-4">
-        <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
+        <div class="mb-6 flex items-center gap-4" data-reveal="editorial">
+          <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
 
-        <p
-          class="text-[.65rem] font-semibold uppercase tracking-[.2em] text-[#F04A2A]"
+          <p
+            class="text-[.65rem] font-semibold uppercase tracking-[.2em] text-[#F04A2A]"
+          >
+            About Muscle Up
+          </p>
+        </div>
+
+        <h2
+          class="font-display text-[clamp(3.5rem,6vw,6.5rem)] uppercase leading-[.82] tracking-[-.045em]"
+          data-reveal="editorial"
+          data-reveal-order="1"
         >
-          About Muscle Up
-        </p>
+          A stronger
+          <br />
+          community
+          <br />
+          <span class="text-[#F04A2A]">together.</span>
+        </h2>
+
+      <div data-reveal="editorial" data-reveal-order="2">
+        <div
+          class="mt-8 max-w-[520px] space-y-5 text-sm leading-[1.8] text-white/65 lg:text-base"
+        >
+          <p>
+            Muscle Up was built for people who want more than just access to
+            equipment. We believe progress comes from consistency, good coaching,
+            and a community that pushes each other forward.
+          </p>
+
+          <p>
+            Whether you're building strength, improving conditioning, or simply
+            becoming more capable every day, our training environment is designed
+            to help you keep moving forward.
+          </p>
+        </div>
+
+        <a
+          href="#programs"
+          class="mt-8 inline-flex items-center gap-8 border-b border-white/35 pb-2 text-[.7rem] font-semibold uppercase tracking-[.15em] no-underline transition-opacity hover:opacity-60"
+        >
+          Learn More
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-
-      <h2
-        class="font-display text-[clamp(3.5rem,6vw,6.5rem)] uppercase leading-[.82] tracking-[-.045em]"
-      >
-        A stronger
-        <br />
-        community
-        <br />
-        <span class="text-[#F04A2A]">together.</span>
-      </h2>
-
-      <div
-        class="mt-8 max-w-[520px] space-y-5 text-sm leading-[1.8] text-white/65 lg:text-base"
-      >
-        <p>
-          Muscle Up was built for people who want more than just access to
-          equipment. We believe progress comes from consistency, good coaching,
-          and a community that pushes each other forward.
-        </p>
-
-        <p>
-          Whether you're building strength, improving conditioning, or simply
-          becoming more capable every day, our training environment is designed
-          to help you keep moving forward.
-        </p>
-      </div>
-
-      <a
-        href="#programs"
-        class="mt-8 inline-flex items-center gap-8 border-b border-white/35 pb-2 text-[.7rem] font-semibold uppercase tracking-[.15em] no-underline transition-opacity hover:opacity-60"
-      >
-        Learn More
-        <span aria-hidden="true">→</span>
-      </a>
     </div>
   </div>
 </section>

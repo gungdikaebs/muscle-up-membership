@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import facilityMain from "../assets/images/facility-main.png";
 import facilityEquipment from "../assets/images/facility-equipment.png";
 import facilityRecovery from "../assets/images/facility-recovery.png";
@@ -17,7 +18,7 @@ const facilities = [
     class="mx-auto grid w-full max-w-[1500px] gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-10"
   >
     <!-- LEFT COPY -->
-    <div>
+    <div data-reveal="editorial">
       <div class="mb-5 flex items-center gap-4">
         <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
 
@@ -57,10 +58,14 @@ const facilities = [
     <div class="grid gap-4 lg:grid-cols-[1.4fr_.6fr]">
       <!-- MAIN IMAGE -->
       <div class="relative min-h-[420px] overflow-hidden lg:min-h-[540px]">
-        <img
-          src={facilityMain.src}
+        <Image
+          src={facilityMain}
           alt="Muscle Up training facility"
           class="absolute inset-0 h-full w-full object-cover"
+          data-reveal="image"
+          layout="full-width"
+          loading="lazy"
+          decoding="async"
         />
 
         <div
@@ -80,18 +85,28 @@ const facilities = [
       <!-- SIDE -->
       <div class="flex flex-col gap-4">
         <div class="relative min-h-[190px] flex-1 overflow-hidden">
-          <img
-            src={facilityEquipment.src}
+          <Image
+            src={facilityEquipment}
             alt="Gym strength equipment"
             class="absolute inset-0 h-full w-full object-cover"
+            data-reveal="image"
+            data-reveal-order="1"
+            layout="full-width"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
         <div class="relative min-h-[190px] flex-1 overflow-hidden">
-          <img
-            src={facilityRecovery.src}
+          <Image
+            src={facilityRecovery}
             alt="Gym recovery space"
             class="absolute inset-0 h-full w-full object-cover"
+            data-reveal="image"
+            data-reveal-order="2"
+            layout="full-width"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import coachAndre from "../assets/images/coaches/coach-andre.png";
 import coachRaka from "../assets/images/coaches/coach-raka.png";
 import coachDion from "../assets/images/coaches/coach-dion.png";
@@ -9,21 +10,21 @@ const coaches = [
 		name: 'Andre',
 		role: 'Strength Coach',
 		quote: 'Get stronger today for a better tomorrow.',
-		image: coachAndre.src,
+		image: coachAndre,
 	},
 	{
 		number: '02',
 		name: 'Raka',
 		role: 'Conditioning Coach',
 		quote: 'Move better. Do more.',
-		image: coachRaka.src,
+		image: coachRaka,
 	},
 	{
 		number: '03',
 		name: 'Dion',
 		role: 'Mobility & Hybrid Coach',
 		quote: 'A stronger body for a longer journey.',
-		image: coachDion.src,
+		image: coachDion,
 	},
 ];
 ---
@@ -33,7 +34,7 @@ const coaches = [
 
 		<!-- HEADER -->
 		<div class="mb-12 grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
-			<div>
+			<div data-reveal="editorial">
 				<div class="mb-5 flex items-center gap-4">
 					<span class="h-[2px] w-7 bg-[#F04A2A]"></span>
 
@@ -49,7 +50,7 @@ const coaches = [
 				</h2>
 			</div>
 
-			<div class="max-w-[520px] lg:justify-self-end">
+			<div class="max-w-[520px] lg:justify-self-end" data-reveal="editorial" data-reveal-order="1">
 				<p class="text-sm leading-[1.8] text-white/55 lg:text-base">
 					More than just trainers. Our coaches are here to guide,
 					support, and push you to become a stronger version of yourself.
@@ -60,13 +61,20 @@ const coaches = [
 		<!-- COACH GRID -->
 		<div class="grid gap-px bg-white/10 lg:grid-cols-3">
 			{
-				coaches.map((coach) => (
-					<article class="group relative min-h-[620px] overflow-hidden bg-[#111]">
+				coaches.map((coach, index) => (
+					<article
+						class="group relative min-h-[620px] overflow-hidden bg-[#111]"
+						data-reveal="group"
+						data-reveal-order={index + 1}
+					>
 						<!-- IMAGE -->
-						<img
+						<Image
 							src={coach.image}
 							alt={`${coach.name} — ${coach.role}`}
 							class="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 ease-out group-hover:scale-[1.035] group-hover:grayscale-0"
+							layout="full-width"
+							loading="lazy"
+							decoding="async"
 						/>
 
 						<!-- DARK GRADIENT -->

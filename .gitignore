@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# scratch folder
+.scratch/
+
+#docs folder
+docs/
+
+#ai folder
+.ai/
+

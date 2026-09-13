@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import programStrength from "../assets/images/program-strength.png";
 import programConditioning from "../assets/images/program-conditioning.png";
 import programMobility from "../assets/images/program-mobility.png";
@@ -9,25 +10,25 @@ const programs = [
     number: "01",
     title: "Strength",
     description: "Build real strength for real life.",
-    image: programStrength.src,
+    image: programStrength,
   },
   {
     number: "02",
     title: "Conditioning",
     description: "Push your limits. Improve endurance.",
-    image: programConditioning.src,
+    image: programConditioning,
   },
   {
     number: "03",
     title: "Mobility",
     description: "Move better. Stay injury free.",
-    image: programMobility.src,
+    image: programMobility,
   },
   {
     number: "04",
     title: "Hybrid",
     description: "Strength meets endurance.",
-    image: programHybrid.src,
+    image: programHybrid,
   },
 ];
 ---
@@ -35,7 +36,7 @@ const programs = [
 <section id="programs" class="bg-[#0B0B0B] py-20 text-white lg:py-28">
   <div class="mx-auto w-full max-w-[1500px] px-6 lg:px-10">
     <div class="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-14">
-      <div>
+      <div data-reveal="editorial">
         <div class="mb-5 flex items-center gap-4">
           <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
           <p
@@ -58,15 +59,20 @@ const programs = [
 
       <div class="grid gap-px bg-white/10 sm:grid-cols-2 xl:grid-cols-4">
         {
-          programs.map((program) => (
+          programs.map((program, index) => (
             <a
               href="#"
               class="group relative min-h-[360px] overflow-hidden bg-[#111] no-underline"
+              data-reveal="group"
+              data-reveal-order={index + 1}
             >
-              <img
+              <Image
                 src={program.image}
                 alt=""
                 class="absolute inset-0 h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                layout="full-width"
+                loading="lazy"
+                decoding="async"
               />
 
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import heroImage from "../assets/images/hero.png";
 ---
 
@@ -7,11 +8,14 @@ import heroImage from "../assets/images/hero.png";
   class="relative isolate flex min-h-svh overflow-hidden bg-[#0B0B0B] text-white"
 >
   <!-- Background Image -->
-  <img
-    src={heroImage.src}
+  <Image
+    src={heroImage}
     alt=""
     aria-hidden="true"
     class="absolute inset-0 -z-30 h-full w-full object-cover object-[64%_center] lg:object-center"
+    data-hero-background
+    layout="full-width"
+    priority
   />
 
   <!-- Dark Overlay -->
@@ -34,7 +38,7 @@ import heroImage from "../assets/images/hero.png";
   >
     <div class="max-w-[720px]">
       <!-- Eyebrow -->
-      <div class="mb-6 flex items-center gap-4">
+      <div class="mb-6 flex items-center gap-4" data-intro data-intro-order="1">
         <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
 
         <p
@@ -50,21 +54,23 @@ import heroImage from "../assets/images/hero.png";
       <h1
         class="font-display m-0 max-w-[700px] text-[clamp(4.6rem,10vw,9.2rem)] font-extrabold uppercase leading-[0.8] tracking-[-0.045em]"
       >
-        <span class="block">Build A</span>
-        <span class="block">Stronger</span>
-        <span class="block text-[#F04A2A]">You.</span>
+        <span class="block" data-intro data-intro-order="2">Build A</span>
+        <span class="block" data-intro data-intro-order="3">Stronger</span>
+        <span class="block text-[#F04A2A]" data-intro data-intro-order="4">You.</span>
       </h1>
 
       <!-- Copy -->
       <p
         class="mt-8 max-w-[540px] text-base leading-[1.65] text-white/72 lg:text-lg"
+        data-intro
+        data-intro-order="4"
       >
         More than a gym, Muscle Up is a community for people who choose
         progress, every day.
       </p>
 
       <!-- Actions -->
-      <div class="mt-8 flex flex-wrap items-center gap-7">
+      <div class="mt-8 flex flex-wrap items-center gap-7" data-intro data-intro-order="5">
         <a
           href="#pricing"
           class="inline-flex min-w-[205px] items-center justify-between gap-8 bg-[#F04A2A] px-6 py-4 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white"
@@ -84,6 +90,8 @@ import heroImage from "../assets/images/hero.png";
       <!-- Scroll cue -->
       <div
         class="mt-12 flex items-center gap-5 text-[0.6rem] font-medium uppercase tracking-[0.24em] text-white/45"
+        data-intro
+        data-intro-order="6"
       >
         <span class="h-10 w-px bg-white/60"></span>
         <span>Scroll Down</span>
