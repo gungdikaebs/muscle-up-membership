@@ -1,12 +1,14 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const links = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Programs", href: "/#programs" },
-  { label: "Facilities", href: "/#facilities" },
-  { label: "Coaches", href: "/#coaches" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", href: `${base}#home` },
+  { label: "About", href: `${base}#about` },
+  { label: "Programs", href: `${base}#programs` },
+  { label: "Facilities", href: `${base}#facilities` },
+  { label: "Coaches", href: `${base}#coaches` },
+  { label: "Pricing", href: `${base}#pricing` },
+  { label: "Contact", href: `${base}#contact` },
 ];
 ---
 
@@ -16,7 +18,7 @@ const links = [
     data-intro="nav"
   >
     <a
-      href="/#home"
+      href={`${base}#home`}
       class="flex items-center gap-4 no-underline"
       aria-label="Muscle Up home"
     >
@@ -49,7 +51,7 @@ const links = [
     </div>
 
     <a
-      href="/#pricing"
+      href={`${base}#pricing`}
       class="hidden items-center gap-6 bg-[#F04A2A] px-6 py-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white lg:inline-flex"
     >
       Join Now
@@ -89,7 +91,7 @@ const links = [
         ))
       }
       <a
-        href="/#pricing"
+        href={`${base}#pricing`}
         class="mt-4 flex items-center justify-between bg-[#F04A2A] px-5 py-4 text-xs font-bold uppercase tracking-[0.16em] text-black no-underline transition-colors hover:bg-white"
         data-menu-link
       >

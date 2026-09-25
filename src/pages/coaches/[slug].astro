@@ -13,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { coach } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -37,7 +38,7 @@ const { coach } = Astro.props;
 
       <div class="mx-auto flex min-h-[78svh] w-full max-w-[1500px] flex-col justify-end px-6 pb-16 pt-36 lg:px-10 lg:pb-24">
         <a
-          href="/#coaches"
+          href={`${base}#coaches`}
           class="mb-10 w-fit text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/65 no-underline transition-colors hover:text-[#F04A2A]"
         >
           ← All Coaches
@@ -60,7 +61,7 @@ const { coach } = Astro.props;
         </div>
 
         <a
-          href="/#contact"
+          href={`${base}#contact`}
           class="mt-9 inline-flex w-fit items-center gap-8 bg-[#F04A2A] px-6 py-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white"
         >
           Train With Our Team <span aria-hidden="true">→</span>
@@ -99,13 +100,13 @@ const { coach } = Astro.props;
 
           <div class="mt-10 flex flex-wrap items-center gap-6">
             <a
-              href="/#contact"
+              href={`${base}#contact`}
               class="inline-flex items-center gap-6 border border-white/20 px-5 py-4 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white no-underline transition-colors hover:border-[#F04A2A] hover:text-[#F04A2A]"
             >
               Get In Touch <span aria-hidden="true">→</span>
             </a>
             <a
-              href="/#coaches"
+              href={`${base}#coaches`}
               class="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-white/50 no-underline transition-colors hover:text-white"
             >
               Explore Other Coaches
