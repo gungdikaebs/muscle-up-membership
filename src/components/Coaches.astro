@@ -1,32 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import coachAndre from "../assets/images/coaches/coach-andre.png";
-import coachRaka from "../assets/images/coaches/coach-raka.png";
-import coachDion from "../assets/images/coaches/coach-dion.png";
-
-const coaches = [
-	{
-		number: '01',
-		name: 'Andre',
-		role: 'Strength Coach',
-		quote: 'Get stronger today for a better tomorrow.',
-		image: coachAndre,
-	},
-	{
-		number: '02',
-		name: 'Raka',
-		role: 'Conditioning Coach',
-		quote: 'Move better. Do more.',
-		image: coachRaka,
-	},
-	{
-		number: '03',
-		name: 'Dion',
-		role: 'Mobility & Hybrid Coach',
-		quote: 'A stronger body for a longer journey.',
-		image: coachDion,
-	},
-];
+import { coaches } from "../data/coaches";
 ---
 
 <section id="coaches" class="bg-[#0B0B0B] py-20 text-white lg:py-28">
@@ -62,8 +36,10 @@ const coaches = [
 		<div class="grid gap-px bg-white/10 lg:grid-cols-3">
 			{
 				coaches.map((coach, index) => (
-					<article
-						class="group relative min-h-[620px] overflow-hidden bg-[#111]"
+					<a
+						href={`/coaches/${coach.slug}`}
+						aria-label={`Meet ${coach.name}, ${coach.role}`}
+						class="group relative min-h-[620px] overflow-hidden bg-[#111] text-white no-underline"
 						data-reveal="group"
 						data-reveal-order={index + 1}
 					>
@@ -113,7 +89,7 @@ const coaches = [
 								</span>
 							</div>
 						</div>
-					</article>
+					</a>
 				))
 			}
 		</div>

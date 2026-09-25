@@ -1,22 +1,22 @@
 ---
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Facilities", href: "#facilities" },
-  { label: "Coaches", href: "#coaches" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Facilities", href: "/#facilities" },
+  { label: "Coaches", href: "/#coaches" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/#contact" },
 ];
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 text-white">
+<header class="sticky inset-x-0 top-0 z-50 border-b border-white/10 bg-[#090909]/80 text-white backdrop-blur-md">
   <nav
     class="mx-auto flex w-full max-w-[1500px] items-center justify-between px-6 py-6 lg:px-10"
     data-intro="nav"
   >
     <a
-      href="#home"
+      href="/#home"
       class="flex items-center gap-4 no-underline"
       aria-label="Muscle Up home"
     >
@@ -49,7 +49,7 @@ const links = [
     </div>
 
     <a
-      href="#pricing"
+      href="/#pricing"
       class="hidden items-center gap-6 bg-[#F04A2A] px-6 py-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white lg:inline-flex"
     >
       Join Now
@@ -58,11 +58,71 @@ const links = [
 
     <button
       type="button"
-      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-white/25 lg:hidden"
+      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-white/25 transition-colors hover:border-[#F04A2A] lg:hidden"
       aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+      data-menu-toggle
     >
       <span class="h-px w-5 bg-white"></span>
       <span class="h-px w-5 bg-white"></span>
     </button>
   </nav>
+
+  <nav
+    id="mobile-navigation"
+    class="absolute inset-x-0 top-full border-y border-white/10 bg-[#090909]/95 px-6 py-4 backdrop-blur-md lg:hidden"
+    aria-label="Mobile navigation"
+    hidden
+    data-mobile-menu
+  >
+    <div class="mx-auto flex w-full max-w-[1500px] flex-col">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="border-b border-white/10 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 no-underline transition-colors hover:text-[#F04A2A]"
+            data-menu-link
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/#pricing"
+        class="mt-4 flex items-center justify-between bg-[#F04A2A] px-5 py-4 text-xs font-bold uppercase tracking-[0.16em] text-black no-underline transition-colors hover:bg-white"
+        data-menu-link
+      >
+        Join Now <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  if (menuToggle && mobileMenu) {
+    const closeMenu = () => {
+      mobileMenu.hidden = true;
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      mobileMenu.hidden = isOpen;
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    });
+
+    mobileMenu.querySelectorAll("[data-menu-link]").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+  }
+</script>

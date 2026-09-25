@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { programs } from "../../data/programs";
+
+export function getStaticPaths() {
+  return programs.map((program) => ({
+    params: { slug: program.slug },
+    props: { program },
+  }));
+}
+
+const { program } = Astro.props;
+---
+
+<BaseLayout
+  title={`${program.title} Training — Muscle Up`}
+  description={program.description}
+>
+  <Navbar />
+
+  <main>
+    <section class="relative isolate min-h-[78svh] overflow-hidden bg-[#090909] text-white">
+      <Image
+        src={program.image}
+        alt={`${program.title} training`}
+        class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        layout="full-width"
+        priority
+      />
+      <div
+        class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,5,5,.94)_0%,rgba(5,5,5,.78)_48%,rgba(5,5,5,.2)_100%),linear-gradient(0deg,rgba(5,5,5,.65)_0%,transparent_65%)]"
+        aria-hidden="true"
+      ></div>
+
+      <div class="mx-auto flex min-h-[78svh] w-full max-w-[1500px] flex-col justify-end px-6 pb-16 pt-36 lg:px-10 lg:pb-24">
+        <a
+          href="/#programs"
+          class="mb-10 w-fit text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/65 no-underline transition-colors hover:text-[#F04A2A]"
+        >
+          ← All Programs
+        </a>
+
+        <div class="max-w-4xl" data-reveal="editorial">
+          <div class="mb-5 flex items-center gap-4">
+            <span class="h-[2px] w-7 bg-[#F04A2A]"></span>
+            <p class="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#F04A2A]">
+              Program {program.number}
+            </p>
+          </div>
+
+          <h1 class="font-display text-[clamp(4.5rem,12vw,10rem)] font-extrabold uppercase leading-[0.78] tracking-[-0.055em]">
+            {program.title}<span class="text-[#F04A2A]">.</span>
+          </h1>
+          <p class="mt-8 max-w-2xl text-base leading-[1.8] text-white/75 lg:text-lg">
+            {program.description}
+          </p>
+        </div>
+
+        <a
+          href="/#contact"
+          class="mt-9 inline-flex w-fit items-center gap-8 bg-[#F04A2A] px-6 py-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-black no-underline transition-colors hover:bg-white"
+        >
+          Ask About This Program <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="bg-[#0B0B0B] py-20 text-white lg:py-28">
+      <div class="mx-auto grid w-full max-w-[1500px] gap-14 px-6 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:px-10">
+        <div data-reveal="editorial">
+          <p class="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#F04A2A]">
+            Train With Purpose
+          </p>
+          <h2 class="font-display max-w-lg text-[clamp(3.5rem,6vw,6rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.05em]">
+            Find Your<br />Focus.
+          </h2>
+        </div>
+
+        <div data-reveal="editorial" data-reveal-order="1">
+          <p class="max-w-3xl text-lg leading-[1.8] text-white/70 lg:text-xl">
+            {program.intro}
+          </p>
+
+          <div class="mt-10 border-t border-white/15">
+            {
+              program.focus.map((item, index) => (
+                <div class="flex items-center gap-6 border-b border-white/15 py-5">
+                  <span class="font-display text-2xl font-bold text-[#F04A2A]">
+                    0{index + 1}
+                  </span>
+                  <p class="text-sm font-medium text-white/80 lg:text-base">{item}</p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <a
+              href="/#pricing"
+              class="inline-flex items-center gap-6 border border-white/20 px-5 py-4 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white no-underline transition-colors hover:border-[#F04A2A] hover:text-[#F04A2A]"
+            >
+              View Memberships <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/#programs"
+              class="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-white/50 no-underline transition-colors hover:text-white"
+            >
+              Explore Other Programs
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,36 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import programStrength from "../assets/images/program-strength.png";
-import programConditioning from "../assets/images/program-conditioning.png";
-import programMobility from "../assets/images/program-mobility.png";
-import programHybrid from "../assets/images/program-hybrid.png";
-
-const programs = [
-  {
-    number: "01",
-    title: "Strength",
-    description: "Build real strength for real life.",
-    image: programStrength,
-  },
-  {
-    number: "02",
-    title: "Conditioning",
-    description: "Push your limits. Improve endurance.",
-    image: programConditioning,
-  },
-  {
-    number: "03",
-    title: "Mobility",
-    description: "Move better. Stay injury free.",
-    image: programMobility,
-  },
-  {
-    number: "04",
-    title: "Hybrid",
-    description: "Strength meets endurance.",
-    image: programHybrid,
-  },
-];
+import { programs } from "../data/programs";
 ---
 
 <section id="programs" class="bg-[#0B0B0B] py-20 text-white lg:py-28">
@@ -61,7 +31,8 @@ const programs = [
         {
           programs.map((program, index) => (
             <a
-              href="#"
+              href={`/programs/${program.slug}`}
+              aria-label={`Explore ${program.title}`}
               class="group relative min-h-[360px] overflow-hidden bg-[#111] no-underline"
               data-reveal="group"
               data-reveal-order={index + 1}
