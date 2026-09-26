@@ -11,9 +11,9 @@ export function getStaticPaths() {
     props: { coach },
   }));
 }
+import { base } from "../../utils/base";
 
 const { coach } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
